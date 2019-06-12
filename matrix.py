@@ -159,11 +159,11 @@ def mat():
         cx = int(M['m10']/M['m00'])
         cy = int(M['m01']/M['m00'])
         return [cx,cy]
-    im = cv2.imread("images/1.png")
+    im = cv2.imread("images/b1.png")
     a=[[0 for x in range(9)] for y in range(9)]
     k=l=0
     for no in range (1,82):
-        im = cv2.imread("images/"+str(no)+".png")
+        im = cv2.imread("images/b"+str(no)+".png")
         try:
             c=color_detection(im)
             s=shape(im)

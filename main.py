@@ -1,3 +1,4 @@
+import time
 import numpy as np
 import cv2
 from collections import defaultdict
@@ -7,21 +8,25 @@ import path
 import matrix
 x1=int(input("Enter starting point: "))
 y1=int(input("Enter the y coordinate: "))
-dir=input("Enter direction: ")
+#dir=input("Enter direction: ")
 flag=1
 sh=input("Enter shape: ")
 co=input("Enter color: ")
 s=(x1,y1)
 a= (matrix.mat())
+print (a)
 if (x1==4 and y1==0):
+    dir='u'
     a[3][4][0:2]=a[4][5][0:2]=a[5][4][0:2]=[0,0]
 elif (x1==0 and y1==4):
+    dir='r'
     a[4][3][0:2]=a[4][5][0:2]=a[5][4][0:2]=[0,0]
 elif (x1==4 and y1==8):
+    dir='d'
     a[3][4][0:2]=a[4][3][0:2]=a[5][4][0:2]=[0,0]
 elif (x1==8 and y1==4):
+    dir='l'
     a[3][4][0:2]=a[4][5][0:2]=a[4][3][0:2]=[0,0]
-print (a)
 while (True):
     points=[]
     # d= tuple((destination.dest(a,s,sh,co))[0:2])
@@ -96,22 +101,34 @@ while (True):
         #print (dir)
         #print (x,y)
         #print (string(dir,x,y))
-        pa=pa+string(dir,x,y)
+        pa=string(dir,x,y)
+        if(pa=='f'):
+            variabletime=4
+        elif((pa=='r')|(pa=='l')):
+            variabletime=4
         #print (path)
         dir=direction(x,y)
         #print (dir)
         # source=points[i]
         #print (pa)
-        file=open('string.txt','w+')
+        file=open('html/string.txt','w+')
         file.write(pa)
         file.close()
         if ((d==(3,4)) | (d==(4,3)) | (d==(5,4)) | (d==(4,5))):
-            file=open('string.txt','a')
+            file=open('html/string.txt','a')
             file.write('fz')
             file.close()
-        file=open('string.txt','a')
+        file=open('html/string.txt','a')
         file.write('0')
         file.close()
+        time.sleep(variabletime)
+        file=open('html/string.txt','w+')
+        file.write("")
+        file.close()
+        time.sleep(variabletime)
+    file=open('html/string.txt','w+')
+    file.write("a0")
+    file.close()
     sh=input("Enter shape: ")
     co=input("Enter color: ")
     s=tuple(points[-1])
