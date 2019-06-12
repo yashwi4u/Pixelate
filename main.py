@@ -21,13 +21,22 @@ elif (x1==4 and y1==8):
     a[3][4][0:2]=a[4][3][0:2]=a[5][4][0:2]=[0,0]
 elif (x1==8 and y1==4):
     a[3][4][0:2]=a[4][5][0:2]=a[4][3][0:2]=[0,0]
+print (a)
 while (True):
     points=[]
-    d= tuple((destination.dest(a,s,sh,co))[0:2])
-    #print (d)
+    # d= tuple((destination.dest(a,s,sh,co))[0:2])
+    # print (d)
     try:
+        d= tuple((destination.dest(a,s,sh,co))[0:2])
         points= (path.paths(s,d))
-    except UnboundLocalError:
+    except (UnboundLocalError):
+        file=open('string.txt','w+')
+        file.write('0')
+        file.close()
+        sh=input("Enter shape: ")
+        co=input("Enter color: ")
+        continue
+    except (RecursionError):
         file=open('string.txt','w+')
         file.write('0')
         file.close()
@@ -96,6 +105,10 @@ while (True):
         file=open('string.txt','w+')
         file.write(pa)
         file.close()
+        if ((d==(3,4)) | (d==(4,3)) | (d==(5,4)) | (d==(4,5))):
+            file=open('string.txt','a')
+            file.write('fz')
+            file.close()
         file=open('string.txt','a')
         file.write('0')
         file.close()
@@ -103,8 +116,8 @@ while (True):
     co=input("Enter color: ")
     s=tuple(points[-1])
     if (x1==4 and y1==0 and s[0]>4):
-        i=5
-        while (i<9):
+        i=0
+        while (i<4):
             for j in range(9):
                 a[i][j][0:2]=[0,0]
             i=i+1

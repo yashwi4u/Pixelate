@@ -96,7 +96,7 @@ def paths(source,destination):
     g.addEdge(22, 31)
     g.addEdge(41, 42)
     g.addEdge(43, 44)
-    g.addEdge(49, 58)
+    g.addEdge(58, 49)
     g.addEdge(58, 67)
     g.addEdge(67, 76)
     g.addEdge(38, 37)
@@ -109,6 +109,7 @@ def paths(source,destination):
     g.addEdge(13, 4)
     g.addEdge(76,67)
     g.addEdge(67,58)
+    g.addEdge(42,41)
     # s = 3
     # d = 20
     #print (dict[(0,1)])

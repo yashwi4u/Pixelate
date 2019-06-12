@@ -88,6 +88,7 @@
 # a[8][8] = [ 'circle','yellow',8,8 ]
 def dest(a,z,shape,color):
     (x,y)=z
+    print (x,y)
     i=0
     f=0
     if ((x==4) & (y==0) & (f==0)):
@@ -137,7 +138,6 @@ def dest(a,z,shape,color):
     def check_quadrant(z,i):
         x=z[0]
         y=z[1]
-        print (x,y)
         if ((x>=0) & (x<=4) & (y>=0) & (y<4)): #quad1
             m=-1
             n=1
@@ -151,7 +151,6 @@ def dest(a,z,shape,color):
             n=1
             return m,n
         elif ((x>4) & (x<=9) & (y>=0) & (y<=4)): #quad4
-            print (4)
             m=-1
             n=-1
             return m,n
